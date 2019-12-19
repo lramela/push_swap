@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_islower.c                                       :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lramela <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ndlamini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/21 14:47:07 by lramela           #+#    #+#             */
-/*   Updated: 2019/06/20 09:13:03 by lramela          ###   ########.fr       */
+/*   Created: 2019/09/27 11:01:03 by ndlamini          #+#    #+#             */
+/*   Updated: 2019/09/27 11:02:19 by ndlamini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_islower(int c)
+#include "checker.h"
+
+void		ft_swap(int *a, int *b)
 {
-	if (c >= 'a' && c <= 'z')
-		return (1);
-	else
-		return (0);
+	int temp;
+
+	temp = *a;
+	*a = *b;
+	*b = temp;
 }

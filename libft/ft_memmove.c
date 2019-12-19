@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lramela <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ndlamini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/04 13:56:42 by lramela           #+#    #+#             */
-/*   Updated: 2019/06/18 08:40:20 by lramela          ###   ########.fr       */
+/*   Created: 2019/05/29 06:37:26 by ndlamini          #+#    #+#             */
+/*   Updated: 2019/06/20 15:55:56 by ndlamini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,21 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char	*source;
-	char	*dest;
+	char	*dst2;
+	char	*src2;
 
-	source = (char*)src;
-	dest = (char*)dst;
-	if (dest == source)
-		return (source);
-	if ((dest <= source) || (dest >= (source + len)))
+	dst2 = (char *)dst;
+	src2 = (char *)src;
+	if (src2 < dst2)
 	{
-		while (len-- > 0)
+		while ((int)--len >= 0)
 		{
-			*(dest++) = *(source++);
+			dst2[len] = src2[len];
 		}
 	}
 	else
 	{
-		source = (char*)src + len - 1;
-		dest = (char*)dst + len - 1;
-		while (len-- > 0)
-		{
-			*(dest--) = *(source--);
-		}
+		ft_memcpy(dst2, src2, len);
 	}
-	return (dst);
+	return ((void *)dst2);
 }

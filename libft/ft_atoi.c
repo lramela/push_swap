@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lramela <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ndlamini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/30 13:33:30 by lramela           #+#    #+#             */
-/*   Updated: 2019/06/21 23:43:05 by lramela          ###   ########.fr       */
+/*   Created: 2019/05/21 09:42:14 by ndlamini          #+#    #+#             */
+/*   Updated: 2019/06/24 16:26:40 by ndlamini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,21 @@
 
 int		ft_atoi(const char *str)
 {
-	int sign;
-	int tmp;
+	int	nbr;
+	int negative;
 
-	sign = 1;
-	tmp = 0;
-	if (ft_strlen(str) >= 19 && ft_strcmp("9223372036854775807", str) < 0)
-		return (-1);
-	if (ft_strlen(str) >= 20 && ft_strcmp("-9223372036854775807", str) < 0)
-		return (0);
-	while (*str == '\t' || *str == '\v' || *str == '\n' || \
-			*str == '\r' || *str == '\f' || *str == ' ')
+	nbr = 0;
+	negative = 1;
+	while (*str && ((*str >= 9 && *str <= 13) || *str == 32))
 		str++;
+	if (*str == '-')
+		negative = -1;
 	if (*str == '-' || *str == '+')
+		str++;
+	while (*str && *str >= '0' && *str <= '9')
 	{
-		if (*str == '-')
-			sign = -1;
+		nbr = nbr * 10 + (*str - 48);
 		str++;
 	}
-	while (*str && ft_isdigit(*str))
-	{
-		tmp = tmp * 10 + *str - '0';
-		str++;
-	}
-	return (tmp * sign);
+	return (nbr * negative);
 }

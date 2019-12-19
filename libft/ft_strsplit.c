@@ -3,70 +3,70 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lramela <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ndlamini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/17 12:57:23 by lramela           #+#    #+#             */
-/*   Updated: 2019/06/21 10:52:57 by lramela          ###   ########.fr       */
+/*   Created: 2019/05/28 06:57:10 by ndlamini          #+#    #+#             */
+/*   Updated: 2019/06/25 08:20:22 by ndlamini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int		ft_nbwords(char const *s, char c)
+static int	ft_countwrds(char const *s, char c)
 {
 	int		i;
-	int		words;
+	int		countwrds;
 
 	i = 0;
-	words = 0;
-	while (*(s + i))
+	countwrds = 0;
+	while (s[i])
 	{
-		while (*(s + i) == c)
+		while (s[i] == c)
 			i++;
-		if (*(s + i))
-			words++;
-		while (*(s + i) && *(s + i) != c)
+		if (s[i] != c && s[i] != '\0')
+			countwrds++;
+		while (s[i] && (s[i] != c))
 			i++;
 	}
-	return (words);
+	return (countwrds);
 }
 
-static	void	ft_split(char **tab, char const *str, char delimiter)
+static char	*ft_hello(char const *s, size_t n)
 {
-	int		i;
-	int		words;
-	size_t	counter;
-	size_t	len;
+	char	*s1;
 
-	i = 0;
-	counter = 0;
-	len = 0;
-	words = ft_nbwords(str, delimiter);
-	while (words - i)
-	{
-		while (str && *(str + counter) == delimiter)
-			counter++;
-		while (str && *(str + counter + len) &&\
-			*(str + counter + len) != delimiter)
-			len++;
-		tab[i] = ft_strsub(str, counter, len);
-		counter += len;
-		len = 0;
-		i++;
-	}
-	tab[i] = NULL;
+	s1 = (char *)malloc(sizeof(char) * (n + 1));
+	if (s1 == NULL)
+		return (0);
+	s1 = ft_strncpy(s1, (char *)s, n);
+	s1[n] = '\0';
+	return (s1);
 }
 
-char			**ft_strsplit(char const *s, char c)
+char		**ft_strsplit(char const *s, char c)
 {
-	char		**tab;
+	int		x;
+	int		y;
+	int		z;
+	char	**tab;
 
-	tab = NULL;
-	if (!s)
-		return (tab);
-	tab = (char **)malloc(sizeof(char *) * (ft_nbwords((char *)s, c) + 1));
-	if (!tab)
+	if (!s || !c)
 		return (NULL);
-	ft_split(tab, s, c);
+	y = ft_countwrds(s, c);
+	if (!(tab = (char **)malloc(sizeof(char *) * (y + 1))))
+		return (NULL);
+	x = 0;
+	y = -1;
+	while (s[x] != '\0')
+	{
+		while (s[x] == c)
+			x++;
+		z = x;
+		while (s[x] && s[x] != c)
+			x++;
+		if (x > z)
+			tab[++y] = ft_hello(s + z, x - z);
+	}
+	tab[++y] = NULL;
 	return (tab);
 }
