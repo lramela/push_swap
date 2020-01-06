@@ -3,13 +3,12 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ndlamini <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: lramela <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/09/27 11:25:17 by ndlamini          #+#    #+#              #
-#    Updated: 2019/09/27 11:25:26 by ndlamini         ###   ########.fr        #
+#    Created: 2019/12/19 09:40:18 by lramela           #+#    #+#              #
+#    Updated: 2019/12/19 09:40:55 by lramela          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 CFLAGS = gcc -Wall -Wextra -Werror -o
 NAME = push_swap

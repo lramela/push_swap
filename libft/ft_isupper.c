@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strequ.c                                        :+:      :+:    :+:   */
+/*   ft_isupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lramela <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/11 12:49:11 by lramela           #+#    #+#             */
-/*   Updated: 2019/06/18 14:38:56 by lramela          ###   ########.fr       */
+/*   Created: 2019/05/21 14:49:55 by lramela           #+#    #+#             */
+/*   Updated: 2019/06/05 14:59:45 by lramela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int		ft_strequ(char const *s1, char const *s2)
+int		ft_isupper(int c)
 {
-	if (s1 == NULL || s2 == NULL)
-		return (0);
-	if (ft_strcmp(s1, s2) != 0)
-		return (0);
-	else
+	if (c >= 'A' && c <= 'Z')
 		return (1);
+	else
+		return (0);
 }
