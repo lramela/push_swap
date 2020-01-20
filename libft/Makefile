@@ -6,7 +6,7 @@
 #    By: lramela <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/21 14:29:03 by lramela           #+#    #+#              #
-#    Updated: 2019/06/21 19:10:02 by pmalope          ###   ########.fr        #
+#    Updated: 2020/01/20 10:12:19 by lramela          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,8 @@ NAME = libft.a
 CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra
+
+HEADER =
 
 SOURCES = ft_tolower.c\
 		  ft_atoi.c\
@@ -70,6 +72,7 @@ SOURCES = ft_tolower.c\
 		  ft_strsub.c\
 		  ft_strtrim.c\
 		  ft_toupper.c\
+		  get_next_line.c\
 
 OBJECTS = $(SOURCES:%.c=%.o)
 
@@ -80,7 +83,7 @@ $(NAME): $(OBJECTS)
 	ranlib $(NAME)
 
 $(OBJECTS):
-	$(CC) $(CFLAGS) -c $(SOURCES)
+	$(CC) $(CFLAGS) -c $(SOURCES)$(HEADER)
 
 clean:
 	rm -rf $(OBJECTS)

@@ -6,7 +6,7 @@
 /*   By: lramela <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 14:38:23 by lramela           #+#    #+#             */
-/*   Updated: 2019/06/27 12:59:18 by lramela          ###   ########.fr       */
+/*   Updated: 2020/01/20 10:20:14 by lramela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,5 @@ void	*ft_memmove(void *dst, const void *src, size_t len);
 void	*ft_memset(void *b, int c, size_t len);
 void	*ft_memalloc(size_t size);
 void	ft_bzero(void *s, size_t n);
+int     get_next_line(const int fd, char **line);
 #endif
